@@ -4,23 +4,82 @@
   <meta charset="UTF-8" />
   <title>Álbum de Figurinhas do Agronegócio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(180deg, #f1f8f4, #e8f5e9);
+      font-family: Arial, sans-serif;
+      background: #f1f5f2;
       margin: 0;
       padding: 20px;
     }
-    h1 { text-align: center; color: #1b5e20; margin-bottom: 24px; }
-    .container { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; }
-    .album { background: #ffffff; border-radius: 16px; padding: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .slot { border: 2px dashed #a5d6a7; border-radius: 14px; height: 200px; display: flex; align-items: center; justify-content: center; color: #558b2f; font-size: 15px; text-align: center; padding: 12px; }
-    .slot.filled { border-style: solid; background: linear-gradient(135deg, #81c784, #43a047); color: #ffffff; font-weight: bold; }
-    .stickers { background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .sticker { background: #ffffff; border-radius: 16px; margin-bottom: 14px; cursor: grab; user-select: none; text-align: center; font-weight: bold; font-size: 15px; box-shadow: 0 6px 14px rgba(0,0,0,0.18); overflow: hidden; }
-    .sticker img { width: 100%; height: 110px; object-fit: cover; display: block; }
-    .sticker span { display: block; padding: 10px; background: linear-gradient(135deg, #66bb6a, #2e7d32); color: #fff; }
-    footer { text-align: center; margin-top: 30px; color: #4e6e52; font-size: 14px; }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .album, .stickers {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .album {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .slot {
+      border: 2px dashed #a5d6a7;
+      border-radius: 12px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #558b2f;
+      font-weight: bold;
+      background: #f9fff9;
+    }
+    .slot.filled {
+      border-style: solid;
+      background: #e8f5e9;
+    }
+    .sticker {
+      border-radius: 12px;
+      margin-bottom: 14px;
+      cursor: grab;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .sticker img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      background: #f1f5f2;
+      pointer-events: none;
+    }
+    .sticker span {
+      display: block;
+      padding: 10px;
+      background: #2e7d32;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #666;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -28,100 +87,68 @@
 <h1>Álbum de Figurinhas do Agronegócio</h1>
 
 <div class="container">
+
   <div class="album">
-    <div class="slot" data-slot="1">Soja 🌱</div>
-    <div class="slot" data-slot="2">Milho 🌽</div>
-    <div class="slot" data-slot="3">Pecuária 🐄</div>
-    <div class="slot" data-slot="4">Agricultura Digital 🚜</div>
-    <div class="slot" data-slot="5">Logística 🚚</div>
-    <div class="slot" data-slot="6">Sustentabilidade ♻️</div>
+    <div class="slot" data-slot="soja">Soja</div>
+    <div class="slot" data-slot="milho">Milho</div>
+    <div class="slot" data-slot="pecuaria">Pecuária</div>
+    <div class="slot" data-slot="tecnologia">Tecnologia no Campo</div>
+    <div class="slot" data-slot="logistica">Logística</div>
+    <div class="slot" data-slot="sustentabilidade">Sustentabilidade</div>
   </div>
 
   <div class="stickers">
-  <h2>Figurinhas</h2>
+    <h3>Figurinhas</h3>
 
-  <div class="sticker" draggable="true" data-target="1">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Soja" draggable="false" />
-    <span>Soja 🌱</span>
+    <div class="sticker" draggable="true" data-id="soja">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Soybean_icon.svg" alt="Soja" />
+      <span>Soja</span>
+    </div>
+
+    <div class="sticker" draggable="true" data-id="milho">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Corn_icon.svg" alt="Milho" />
+      <span>Milho</span>
+    </div>
+
+    <div class="sticker" draggable="true" data-id="pecuaria">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Cow_icon.svg" alt="Pecuária" />
+      <span>Pecuária</span>
+    </div>
+
+    <div class="sticker" draggable="true" data-id="tecnologia">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tractor_icon.svg" alt="Tecnologia no Campo" />
+      <span>Tecnologia</span>
+    </div>
+
   </div>
 
-  <div class="sticker" draggable="true" data-target="2">
-    <img src="https://images.unsplash.com/photo-1602526432604-029a709e131c" alt="Milho" draggable="false" />
-    <span>Milho 🌽</span>
-  </div>
-
-  <div class="sticker" draggable="true" data-target="3">
-    <img src="https://images.unsplash.com/photo-1598514982841-2f4c1c9e7c92" alt="Pecuária" draggable="false" />
-    <span>Pecuária 🐄</span>
-  </div>
-
-  <div class="sticker" draggable="true" data-target="4">
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="Agricultura Digital" draggable="false" />
-    <span>Agricultura Digital 🚜</span>
-  </div>
-</div>
-    <div class="sticker" draggable="true" data-target="1">
-  <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Soja" />
-  <span>Soja 🌱</span>
-</div>
-    <div class="sticker" draggable="true" data-target="1">
-  <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Soja" />
-  <span>Soja 🌱</span>
-</div>
-    <div class="sticker" draggable="true" data-target="1">
-  <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Soja" />
-  <span>Soja 🌱</span>
-</div>
-  </div>
 </div>
 
 <footer>
-  Arraste as figurinhas para o local correto no álbum
+  Arraste a figurinha para o espaço correto do álbum
 </footer>
 
 <script>
-  const stickers = document.querySelectorAll('.sticker');
-  const slots = document.querySelectorAll('.slot');
-  let draggedSticker = null;
-
-  // --- CARREGAR PROGRESSO ---
-  const saved = JSON.parse(localStorage.getItem('albumAgro')) || {};
-  slots.forEach(slot => {
-    const id = slot.dataset.slot;
-    if (saved[id]) {
-      slot.textContent = saved[id];
-      slot.classList.add('filled');
-    }
-  });
+  let dragged = null;
 
   document.querySelectorAll('.sticker').forEach(sticker => {
-    if (Object.values(saved).includes(sticker.textContent)) {
-      sticker.remove();
-    }
-  });
-
-  // --- DRAG & DROP ---
-  stickers.forEach(sticker => {
-    sticker.addEventListener('dragstart', () => {
-      draggedSticker = sticker;
+    sticker.addEventListener('dragstart', e => {
+      dragged = sticker;
+      e.dataTransfer.setData('text/plain', sticker.dataset.id);
     });
   });
 
-  slots.forEach(slot => {
+  document.querySelectorAll('.slot').forEach(slot => {
     slot.addEventListener('dragover', e => e.preventDefault());
 
-    slot.addEventListener('drop', () => {
-      if (!draggedSticker) return;
+    slot.addEventListener('drop', e => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('text/plain');
 
-      const target = draggedSticker.dataset.target;
-      if (slot.dataset.slot === target && !slot.classList.contains('filled')) {
-        slot.textContent = draggedSticker.textContent;
+      if (slot.dataset.slot === id && !slot.classList.contains('filled')) {
+        slot.innerHTML = dragged.innerHTML;
         slot.classList.add('filled');
-
-        saved[target] = draggedSticker.textContent;
-        localStorage.setItem('albumAgro', JSON.stringify(saved));
-
-        draggedSticker.remove();
+        dragged.remove();
       }
     });
   });
