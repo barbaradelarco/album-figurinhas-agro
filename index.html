@@ -1,184 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Álbum de Figurinhas do Agronegócio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Álbum do Agronegócio</title>
 <style>
 body {
-  margin: 0;
-  padding: 20px;
   font-family: Arial, sans-serif;
-  background: #f1f5f2;
+  background: #f4f6f8;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #2e7d32;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-}
-
-.album, .panel {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.1);
-}
-
-.album {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.slot {
-  height: 180px;
-  border: 2px dashed #81c784;
-  border-radius: 12px;
+#stickers {
   display: flex;
-  align-items: center;
+  gap: 20px;
   justify-content: center;
-  font-weight: bold;
-  color: #2e7d32;
-}
-
-.slot.filled {
-  border-style: solid;
-  background: #e8f5e9;
+  margin-bottom: 30px;
 }
 
 .sticker {
-  margin-bottom: 16px;
-  border-radius: 12px;
-  overflow: hidden;
+  width: 100px;
   cursor: grab;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-  position: relative;
 }
 
-.sticker.dragging {
-  position: absolute;
-  z-index: 1000;
-  cursor: grabbing;
-  pointer-events: none;
+#album {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 30px;
+  justify-content: center;
+}
+
+.slot {
   width: 180px;
+  height: 180px;
+  border: 3px dashed #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 }
 
-.sticker img {
+.slot img {
   width: 100%;
-  height: 120px;
-  object-fit: cover;
-}
-
-.sticker span {
-  display: block;
-  background: #2e7d32;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
 }
 </style>
 </head>
-
 <body>
 
-<h1>Álbum de Figurinhas do Agronegócio</h1>
+<h1>Álbum do Agronegócio 🌱</h1>
 
-<div class="container">
+<div id="stickers">
+  <img class="sticker" draggable="true" id="soja" 
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA..." />
 
-  <div class="album">
-    <div class="slot" data-slot="soja">Soja</div>
-    <div class="slot" data-slot="milho">Milho</div>
-    <div class="slot" data-slot="pecuaria">Pecuária</div>
-    <div class="slot" data-slot="tecnologia">Tecnologia</div>
-  </div>
+  <img class="sticker" draggable="true" id="milho" 
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA..." />
 
-  <div class="panel">
-    <h3>Figurinhas</h3>
+  <img class="sticker" draggable="true" id="pecuaria" 
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA..." />
 
-    <div class="sticker" data-id="soja">
-      <img src="https://images.unsplash.com/photo-1598514982845-f1f8b6b52c07?auto=format&fit=crop&w=400&q=60">
-      <span>Soja</span>
-    </div>
+  <img class="sticker" draggable="true" id="tecnologia" 
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA..." />
+</div>
 
-    <div class="sticker" data-id="milho">
-      <img src="https://images.unsplash.com/photo-1562077981-4d2b9b8f30aa?auto=format&fit=crop&w=400&q=60">
-      <span>Milho</span>
-    </div>
-
-    <div class="sticker" data-id="pecuaria">
-      <img src="https://images.unsplash.com/photo-1598971861713-3c4b1e83f0b8?auto=format&fit=crop&w=400&q=60">
-      <span>Pecuária</span>
-    </div>
-
-    <div class="sticker" data-id="tecnologia">
-      <img src="https://images.unsplash.com/photo-1604014237744-1a9a1c3a4d6c?auto=format&fit=crop&w=400&q=60">
-      <span>Tecnologia</span>
-    </div>
-
-  </div>
+<div id="album">
+  <div class="slot" data-accept="soja">Soja</div>
+  <div class="slot" data-accept="milho">Milho</div>
+  <div class="slot" data-accept="pecuaria">Pecuária</div>
+  <div class="slot" data-accept="tecnologia">Tecnologia</div>
 </div>
 
 <script>
 let dragged = null;
-let offsetX = 0;
-let offsetY = 0;
 
 document.querySelectorAll('.sticker').forEach(sticker => {
-  sticker.addEventListener('mousedown', e => {
-    dragged = sticker;
-    const rect = sticker.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-    sticker.classList.add('dragging');
+  sticker.addEventListener('dragstart', e => {
+    dragged = e.target;
   });
 });
 
-document.addEventListener('mousemove', e => {
-  if (!dragged) return;
-  dragged.style.left = e.pageX - offsetX + 'px';
-  dragged.style.top = e.pageY - offsetY + 'px';
-});
+document.querySelectorAll('.slot').forEach(slot => {
+  slot.addEventListener('dragover', e => e.preventDefault());
 
-document.addEventListener('mouseup', e => {
-  if (!dragged) return;
-
-  let placed = false;
-  const id = dragged.dataset.id;
-
-  document.querySelectorAll('.slot').forEach(slot => {
-    const r = slot.getBoundingClientRect();
-    if (
-      e.clientX >= r.left &&
-      e.clientX <= r.right &&
-      e.clientY >= r.top &&
-      e.clientY <= r.bottom &&
-      slot.dataset.slot === id &&
-      !slot.classList.contains('filled')
-    ) {
-      slot.innerHTML = dragged.innerHTML;
-      slot.classList.add('filled');
-      dragged.remove();
-      placed = true;
+  slot.addEventListener('drop', e => {
+    e.preventDefault();
+    if (dragged && slot.dataset.accept === dragged.id) {
+      slot.innerHTML = '';
+      slot.appendChild(dragged);
+      dragged.style.cursor = 'default';
+      dragged.draggable = false;
     }
   });
-
-  if (!placed) {
-    dragged.style.left = '';
-    dragged.style.top = '';
-  }
-
-  dragged.classList.remove('dragging');
-  dragged = null;
 });
 </script>
 
