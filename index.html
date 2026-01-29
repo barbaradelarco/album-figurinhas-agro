@@ -1,1 +1,130 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Álbum de Figurinhas – Agronegócio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 32px;
+    }
+    .album {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .sticker-slot {
+      background: #fff;
+      border: 2px dashed #bbb;
+      border-radius: 12px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+      padding: 12px;
+    }
+    .sticker {
+      background: #ffffff;
+      border: 2px solid #00cf74;
+      border-radius: 12px;
+      height: 240px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .sticker img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .sticker h3 {
+      font-size: 16px;
+      margin: 8px 0 4px 0;
+      color: #2c3e50;
+    }
+    .sticker p {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Álbum de Figurinhas do Agronegócio</h1>
+  <p class="subtitle">Colecione e aprenda sobre os pilares do agro brasileiro 🌱🚜</p>
+
+  <div class="album">
+    <!-- Figurinha 1 -->
+    <div class="sticker">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Plantação de soja" />
+      <h3>Soja</h3>
+      <p>Base da exportação agrícola brasileira e matéria-prima para alimentos e biocombustíveis.</p>
+    </div>
+
+    <!-- Figurinha 2 -->
+    <div class="sticker">
+      <img src="https://images.unsplash.com/photo-1598514982841-2f4c1c9e7c92" alt="Colheitadeira" />
+      <h3>Tecnologia no Campo</h3>
+      <p>Máquinas e dados aumentam a produtividade e reduzem desperdícios.</p>
+    </div>
+
+    <!-- Espaços vazios do álbum -->
+    <div class="sticker-slot">Espaço para figurinha<br/>Pecuária</div>
+    <div class="sticker-slot">Espaço para figurinha<br/>Agricultura Sustentável</div>
+    <div class="sticker-slot">Espaço para figurinha<br/>Irrigação</div>
+    <div class="sticker-slot">Espaço para figurinha<br/>Agro e Exportação</div>
+  </div>
+
+  <footer>
+    Álbum digital educativo • Agronegócio
+  </footer>
+
+  <script>
+    const packs = {
+      basic: ["Soja", "Tecnología en el Campo", "Ganadería"],
+      tech: ["Irrigación", "Energía Renovable", "Agroindustria"],
+    };
+
+    function openPack(type) {
+      const cards = packs[type];
+      const drawn = cards[Math.floor(Math.random() * cards.length)];
+      alert("¡Te salió la figurita: " + drawn + "!");
+    }
+  </script>
+
+  <div style="max-width:1000px;margin:40px auto;text-align:center;">
+    <h2>Abrir Pacotinhos 🎁</h2>
+    <button onclick="openPack('basic')" style="margin:10px;padding:12px 20px;font-size:16px;">Pacote Básico</button>
+    <button onclick="openPack('tech')" style="margin:10px;padding:12px 20px;font-size:16px;">Pacote Tecnologia</button>
+  </div>
+
+</body>
+</html>
