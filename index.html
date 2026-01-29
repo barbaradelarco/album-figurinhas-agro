@@ -6,69 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f5;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(180deg, #f1f8f4, #e8f5e9);
       margin: 0;
       padding: 20px;
     }
     h1 {
       text-align: center;
-      color: #2e7d32;
+      color: #1b5e20;
+      margin-bottom: 24px;
     }
     .container {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 20px;
+      gap: 24px;
       max-width: 1200px;
       margin: 0 auto;
     }
     .album {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 24px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
     .slot {
-      border: 2px dashed #c8e6c9;
-      border-radius: 10px;
-      height: 180px;
+      border: 2px dashed #a5d6a7;
+      border-radius: 14px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #81c784;
-      font-size: 14px;
+      color: #558b2f;
+      font-size: 15px;
       text-align: center;
+      padding: 12px;
+      background: repeating-linear-gradient(
+        45deg,
+        #f9fff9,
+        #f9fff9 10px,
+        #f1f8f4 10px,
+        #f1f8f4 20px
+      );
     }
     .slot.filled {
       border-style: solid;
+      background: linear-gradient(135deg, #81c784, #43a047);
+      color: #ffffff;
+      font-weight: bold;
     }
     .stickers {
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .stickers h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 16px;
     }
     .sticker {
       background: linear-gradient(135deg, #66bb6a, #2e7d32);
       color: #ffffff;
-      border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 12px;
+      border-radius: 16px;
+      padding: 14px 10px;
+      margin-bottom: 14px;
       cursor: grab;
       user-select: none;
       text-align: center;
       font-weight: bold;
+      font-size: 15px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .sticker::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 60%);
     }
     .sticker:active {
       cursor: grabbing;
+      transform: scale(0.96);
     }
     footer {
       text-align: center;
       margin-top: 30px;
-      color: #777;
+      color: #4e6e52;
       font-size: 14px;
     }
   </style>
